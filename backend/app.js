@@ -16,9 +16,9 @@ const routes = require('../routes/routes');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin","*");
-    res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS, DELETE,PUT');
-    res.setHeader("Access-Control-Allow-Headers","Origin, X-Requested-With, Accept");
+    res.header("Access-Control-Allow-Origin","*");
+    res.hader('Access-Control-Allow-Methods','GET,POST,OPTIONS, DELETE,PUT');
+    res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Accept");
     next();
      
 }); 
