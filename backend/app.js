@@ -15,13 +15,19 @@ const url = 'http://localhost:4200';
 const routes = require('../routes/routes');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin","http://socialbackend.azurewebsites.net");
+app.use(function(req,res,next) {
+    var allowedOrigins = ['http://localhost:4200', 'socialbackend.azurewebsites.net', 'ngsocialapp.azurewebsites.net'];
+    var origin = req.headers.origin;
+    if(allowedOrigins.indexOf(origin) > -1){
+         res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    // res.setHeader("Access-Control-Allow-Origin","socialbackend.azurewebsites.net");
     res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS, DELETE,PUT');
     res.setHeader("Access-Control-Allow-Headers","*");
     next();
      
 }); 
+
 
 
 
