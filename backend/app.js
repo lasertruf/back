@@ -16,7 +16,7 @@ const routes = require('../routes/routes');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(function(req,res,next) {
-    var allowedOrigins = ['http://localhost:4200', 'socialbackend.azurewebsites.net', 'ngsocialapp.azurewebsites.net'];
+    var allowedOrigins = ['http://localhost:4200', 'http://socialbackend.azurewebsites.net', 'http://ngsocialapp.azurewebsites.net', 'https://socialbackend.azurewebsites.net', 'https://ngsocialapp.azurewebsites.net', ];
     var origin = req.headers.origin;
     if(allowedOrigins.indexOf(origin) > -1){
          res.setHeader('Access-Control-Allow-Origin', origin);
